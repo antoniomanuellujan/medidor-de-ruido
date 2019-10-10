@@ -1,4 +1,4 @@
-# Semaforo de ruido en el aula monitorizado por imágenes
+# Semáforo de ruido en el aula monitorizado por imágenes
 
 Esta práctica consiste en registrar el nivel de ruido de un aula con un micrófono y mostrar una imagen en función de nivel detectado.
 El micrófono se conecta a Arduino UNO a través de un Shield. 
