@@ -10,8 +10,13 @@ int muestras;// reserva 2 bytes para la variable muestras
 long senal;// reserva 4 bytes para la variable senal
 long promedioLectura;
 
-const int nivel1=30000;// marca el cambio de verde a Ã¡mbar
-const long nivel2=150000;// marca el cambio de Ã¡mbar a rojo
+
+const long nivel1=180000;// marca el cambio de verde a Ã¡mbar
+const long nivel2=200000;// marca el cambio de Ã¡mbar a rojo
+
+int nivel_verde = 1; 
+int nivel_amarillo = 2;
+int nivel_rojo = 3;
 
 void setup() {
 Serial.begin(9600);
@@ -38,14 +43,15 @@ void loop() {
     digitalWrite (releRojo,LOW);
     digitalWrite (releVerde, HIGH);
     digitalWrite (releAmbar, LOW);
-      Serial.print("Sonido < 50 DB   ");
+      
+      Serial.println(nivel_verde);
     } 
     
     if ((promedioLectura > nivel1) & (promedioLectura < nivel2)) {
     digitalWrite (releRojo,LOW);
     digitalWrite (releVerde, LOW);
     digitalWrite (releAmbar, HIGH);
-     Serial.print("Sonido (50-60)DB");
+     Serial.println(nivel_amarillo);
      }
      
      if (promedioLectura > nivel2) { 
@@ -53,21 +59,9 @@ void loop() {
     digitalWrite (releVerde, LOW); 
     digitalWrite (releAmbar, LOW); 
     
-    Serial.print("Sonido > 60 DB  ");
+    Serial.println(nivel_rojo);
      }
-  Serial.print (promedioLectura); 
-  Serial.print("   "); 
-  Serial.print("nivel1=");
-  Serial.print(nivel1);
-  Serial.print("   "); 
-  Serial.print("nivel2=");
-  Serial.print(nivel2);
- if (promedioLectura<nivel1) {Serial.print("  LED VERDE");}
+
  
- if ((promedioLectura>nivel1) & (promedioLectura<nivel2)) {Serial.print("  LED BLANCO");}
- 
- if (promedioLectura>nivel2) {Serial.print("  LED ROJO");}
-  Serial.println();  
 }
  
-
