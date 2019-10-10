@@ -11,7 +11,7 @@ long senal;// reserva 4 bytes para la variable senal
 long promedioLectura;
 
 
-const long nivel1=180000;// marca el cambio de verde a Ã¡mbar
+const long nivel1=190000;// marca el cambio de verde a Ã¡mbar
 const long nivel2=200000;// marca el cambio de Ã¡mbar a rojo
 
 int nivel_verde = 1; 
@@ -20,7 +20,7 @@ int nivel_rojo = 3;
 
 void setup() {
 Serial.begin(9600);
-Serial.print("I.E.S. Santa MarÃ­a de los BaÃ±os");
+//Serial.print("I.E.S. Santa MarÃ­a de los BaÃ±os");
   
   pinMode(A0, INPUT);
   pinMode(releRojo,OUTPUT);
@@ -44,14 +44,16 @@ void loop() {
     digitalWrite (releVerde, HIGH);
     digitalWrite (releAmbar, LOW);
       
-      Serial.println(nivel_verde);
+      Serial.write(nivel_verde);
+    // Serial.println(nivel_verde);
     } 
     
     if ((promedioLectura > nivel1) & (promedioLectura < nivel2)) {
     digitalWrite (releRojo,LOW);
     digitalWrite (releVerde, LOW);
     digitalWrite (releAmbar, HIGH);
-     Serial.println(nivel_amarillo);
+     Serial.write(nivel_amarillo);
+   // Serial.println(nivel_amarillo);
      }
      
      if (promedioLectura > nivel2) { 
@@ -59,9 +61,10 @@ void loop() {
     digitalWrite (releVerde, LOW); 
     digitalWrite (releAmbar, LOW); 
     
-    Serial.println(nivel_rojo);
+    Serial.write(nivel_rojo);
+   //Serial.println(nivel_rojo);
      }
-
+//Serial.println(promedioLectura);
  
 }
  
