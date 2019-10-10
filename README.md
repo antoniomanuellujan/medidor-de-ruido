@@ -49,12 +49,10 @@ Las imágenes que se mostrarán son:
 
 ## Programación en Processing
 
-![Archivo processing (.pde)](proccesing_imagenes/proccesing_imagenes.pde)
+![Archivo processing (.pde)](processing_imagenes/processing_imagenes.pde)
 
 ## Enlaces de interés
 
 - ![Web del micro](http://wiki.seeedstudio.com/Grove-Sound_Sensor/)
-
--
 
 
